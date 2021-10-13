@@ -1,0 +1,59 @@
+{% extends "main.html" %}
+
+{% block homePage %}
+    <style>
+        td, th {
+            border-bottom: 1px dashed black;
+            border-left: 1px dashed black;
+            text-align: center;
+        }
+
+        table {
+            border: 1px solid red;
+            width: 100%;
+            margin-top: 15px;
+        }
+    </style>
+
+    {% include "pages/navbar.html" %}
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Card ID</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for student in student_data %}
+        <tr>
+            <td>{{student.name}}</td>
+            <td>{{student.surname}}</td>
+            <td>{{student.card_id}}</td> 
+            <td><a href="{% url 'view-student' student.unique_id %}">View Student</a></td>
+            <td><a href="{% url 'update-student' student.unique_id %}">Edit Student</a></td>        
+            <td><a href="{% url 'delete-student' student.unique_id %}">Delete Student</a></td>     
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for teacher in teacher_data%}
+        <tr>
+            <td>{{teacher.name}}</td>
+            <td>{{teacher.surname}}</td>
+            <td>{{teacher.age}}</td>   
+            <td><a href="{% url 'update-teacher' teacher.id %}">Edit Teacher</a></td>    
+            <td><a href="{% url 'delete-teacher' teacher.id %}">Delete Teacher</a></td>      
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock homePage %} 

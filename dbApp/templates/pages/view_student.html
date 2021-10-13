@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+
+{% block homePage %}
+    <p>Student photo: <img src="{{student.student_image.url}}"> </p>
+    <p>Student name: {{student.name}}</p>
+    <p>Student surname: {{student.surname}}</p>
+    <p>Student card id: {{student.card_id}}</p>
+    <p>Student unique id: {{student.unique_id}}</p>
+{% endblock homePage %}

@@ -1,0 +1,13 @@
+{% load static %}
+
+<img src="{% static 'images/logo.svg' %}" alt="Main Image">
+
+<nav>
+    <button>
+        <a href="{% url 'create-student' %}">Add Student</a>
+    </button>
+
+    <button>
+        <a href="{% url 'create-teacher' %}">Add Teacher</a>
+    </button>
+</nav>
